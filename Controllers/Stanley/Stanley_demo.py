@@ -143,8 +143,8 @@ def main():
         robot_state = np.zeros(4)
         robot_state[0] = ugv.x
         robot_state[1] = ugv.y
-        robot_state[2]=ugv.psi
-        robot_state[3]=ugv.v
+        robot_state[2] = ugv.psi
+        robot_state[3] = ugv.v
 
 
         delta,ind = stanley_control(robot_state,refer_path,refer_path_psi)
