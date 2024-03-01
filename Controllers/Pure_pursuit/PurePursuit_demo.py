@@ -111,14 +111,14 @@ def main():
         # plt.axis("equal")
         plt.grid(True)
         plt.pause(0.001)
-    #     camera.snap()
-    # animation = camera.animate()
-    # animation.save('trajectory.gif')
+        camera.snap()
+    animation = camera.animate()
+    animation.save('trajectory1.gif')
 
-    plt.figure(2)
-    plt.plot(refer_path[:, 0], refer_path[:, 1], '-.b', linewidth=1.0)
-    plt.plot(x_, y_, 'r')
-    plt.show()
+    # plt.figure(2)
+    # plt.plot(refer_path[:, 0], refer_path[:, 1], '-.b', linewidth=1.0)
+    # plt.plot(x_, y_, 'r')
+    # plt.show()
 
 
 if __name__ == '__main__':
