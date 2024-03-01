@@ -70,7 +70,7 @@ class KinematicModel3:
         self.x = self.x + self.v * math.cos(self.psi) * self.dt
         self.y = self.y + self.v * math.sin(self.psi) * self.dt
         self.psi = self.psi + self.v * math.tan(delta_f) / self.L * self.dt
-        self.v = self.v + a * self * self.dt
+        self.v = self.v + a * self.dt
 
     def get_state(self):
         return self.x, self.y, self.psi, self.v
