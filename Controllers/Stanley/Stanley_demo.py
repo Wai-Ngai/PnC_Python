@@ -116,12 +116,6 @@ def stanley_control(robot_state,refer_path, refer_path_psi):
     delta = normalize_angle(theta_e+delta_e)
     return delta,current_target_index
 
-    
-
-
-
-
-
 def main():
     # set reference trajectory
     refer_path = np.zeros((1000, 2))
