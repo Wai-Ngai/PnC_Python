@@ -75,6 +75,26 @@ class KinematicModel3:
     def get_state(self):
         return self.x, self.y, self.psi, self.v
 
+    def state_space(self, ref_delta, ref_yaw):
+        """
+            将模型离散化后的状态空间表达式
+        Args:
+            ref_delta:参考轨迹转角？
+            ref_yaw:参考轨迹航向角
+
+        Returns:
+
+        """
+        A = np.array([[1.0, 0.0, -self.v * math.sin(ref_yaw) * self.dt],
+                      [0.0, 1.0, self.v * math.cos(ref_yaw) * self.dt],
+                      [0.0, 0.0, 1.0]])
+        B = np.array([[self.dt * math.cos(ref_yaw), 0],
+                      [self.dt * math.sin(ref_yaw), 0],
+                      [self.dt * math.tan(ref_delta) / self.L,
+                       self.v * self.dt / (self.L * math.cos(ref_delta) ** 2)]])
+
+        return A, B
+
 
 class LateralErrorModel:
     """
