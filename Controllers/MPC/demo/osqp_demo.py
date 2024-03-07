@@ -43,7 +43,7 @@ xmax = np.array([ np.pi/6, np.pi/6, np.inf, np.inf, np.inf, np.inf,
                   np.inf, np.inf, np.inf, np.inf, np.inf, np.inf])
 
 # Objective function
-Q = sparse.diags([0., 0., 10., 10., 10., 10., 0., 0., 0., 5., 5., 5.])
+Q = sparse.diags([0., 0., 10., 10., 10., 10., 0., 0., 0., 5., 5., 5.])  # 创建一个稀疏对角矩阵
 QN = Q
 R = 0.1*sparse.eye(4)
 
@@ -57,7 +57,7 @@ N = 10
 # Cast MPC problem to a QP: x = (x(0),x(1),...,x(N),u(0),...,u(N-1))
 # - quadratic objective
 P = sparse.block_diag([sparse.kron(sparse.eye(N), Q), QN,
-                       sparse.kron(sparse.eye(N), R)], format='csc')
+                       sparse.kron(sparse.eye(N), R)], format='csc')  # 分块对角矩阵
 # - linear objective
 q = np.hstack([np.kron(np.ones(N), -Q.dot(xr)), -QN.dot(xr),
                np.zeros(N*nu)])

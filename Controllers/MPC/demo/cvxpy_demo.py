@@ -3,6 +3,11 @@ import numpy as np
 import scipy as sp
 from scipy import sparse
 
+"""
+    官方案例，https://osqp.org/docs/examples/mpc.html
+"""
+
+
 # Discrete time model of a quadcopter
 Ad = sparse.csc_matrix([
   [1.,      0.,     0., 0., 0., 0., 0.1,     0.,     0.,  0.,     0.,     0.    ],
